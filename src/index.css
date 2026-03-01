@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 20 15% 15%;
+    --card: 40 30% 99%;
+    --card-foreground: 20 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 15% 15%;
+    --primary: 24 80% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 60% 92%;
+    --secondary-foreground: 20 15% 20%;
+    --muted: 35 20% 93%;
+    --muted-foreground: 20 10% 50%;
+    --accent: 24 70% 92%;
+    --accent-foreground: 24 80% 30%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 24 80% 55%;
+    --radius: 0.75rem;
+
+    /* Sticky Note Colors */
+    --note-yellow: 48 95% 82%;
+    --note-pink: 340 80% 85%;
+    --note-blue: 210 80% 85%;
+    --note-green: 145 60% 82%;
+    --note-purple: 270 60% 87%;
+    --note-orange: 25 90% 83%;
+
+    /* Shadows */
+    --shadow-note: 0 4px 16px -2px hsl(20 15% 15% / 0.08), 0 2px 6px -2px hsl(20 15% 15% / 0.06);
+    --shadow-note-hover: 0 8px 28px -4px hsl(20 15% 15% / 0.12), 0 4px 10px -4px hsl(20 15% 15% / 0.08);
+    --shadow-soft: 0 2px 10px -2px hsl(20 15% 15% / 0.06);
+    --shadow-glow: 0 0 20px hsl(24 80% 55% / 0.15);
+
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(40 33% 97%), hsl(35 40% 94%));
+    --gradient-sidebar: linear-gradient(180deg, hsl(24 80% 55%), hsl(24 70% 48%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.3);
+  }
+}
+
+@layer utilities {
+  .note-yellow { background-color: hsl(var(--note-yellow)); }
+  .note-pink { background-color: hsl(var(--note-pink)); }
+  .note-blue { background-color: hsl(var(--note-blue)); }
+  .note-green { background-color: hsl(var(--note-green)); }
+  .note-purple { background-color: hsl(var(--note-purple)); }
+  .note-orange { background-color: hsl(var(--note-orange)); }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-sidebar {
+    background: var(--gradient-sidebar);
+  }
+
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .note-texture {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 27px,
+        hsl(var(--foreground) / 0.04) 27px,
+        hsl(var(--foreground) / 0.04) 28px
+      );
+    background-position: 0 20px;
+  }
+}
